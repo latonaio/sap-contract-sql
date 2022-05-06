@@ -98,7 +98,7 @@ CREATE TABLE `sap-contract-collection-data`
 			`RequestExternalPricing`                                     tinyint(1) DEFAULT NULL,
 			`Transfer`                                                   tinyint(1) DEFAULT NULL,
 			`EntityLastChangedOn`                                        varchar(80) DEFAULT NULL,
-    PRIMARY KEY (`ID`),
+    PRIMARY KEY (`ID`)  
 ) ENGINE = InnoDB
  DEFAULT CHARSET = utf8mb4;
 
