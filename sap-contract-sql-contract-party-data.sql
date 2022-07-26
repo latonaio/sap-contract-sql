@@ -1,9 +1,9 @@
-CREATE TABLE `sap_contract_party_data`
+CREATE TABLE `sap_contract_contract_party_data`
 (
-			`ObjectID`                                   varchar(70) DEFAULT NULL,
+			`ObjectID`                                   varchar(70) NOT NULL,
+			`PartyID`                                    varchar(60) NOT NULL,
 			`ParentObjectID`                             varchar(70) DEFAULT NULL,
-			`ContractID`                                 varchar(35) NOT NULL,
-			`PartyID`                                    varchar(60) DEFAULT NULL,
+			`ContractID`                                 varchar(35) DEFAULT NULL,
 			`PartyEmployeeID`                            varchar(20) DEFAULT NULL,
 			`PartyUUID`                                  varchar(80) DEFAULT NULL,  
 			`PartyName`                                  varchar(480) DEFAULT NULL,  
@@ -44,8 +44,7 @@ CREATE TABLE `sap_contract_party_data`
 			`WebSite`                                    varchar(1280) DEFAULT NULL,
 			`CorrespondenceLanguageCode`                 varchar(2) DEFAULT NULL,           
 			`BestReachedByCode`                          varchar(3) DEFAULT NULL,         
-    PRIMARY KEY (`ContractID`),
-    CONSTRAINT `SAPContractPartyData_fk` FOREIGN KEY (`ContractID`) REFERENCES `sap_contract_collection_data` (`ContractID`)
+    PRIMARY KEY (`ObjectID`, `PartyID`),
+    CONSTRAINT `SAPContractContractPartyData_fk` FOREIGN KEY (`ObjectID`) REFERENCES `sap_contract_contract_collection_data` (`ObjectID`)
 ) ENGINE = InnoDB
  DEFAULT CHARSET = utf8mb4;
-

@@ -1,8 +1,8 @@
 CREATE TABLE `sap_contract_external_price_component_data`  
 (
-			`ObjectID`                                   varchar(70) DEFAULT NULL,
+			`ObjectID`                                   varchar(70) NOT NULL,
 			`ParentObjectID`                             varchar(70) DEFAULT NULL,
-			`ContractID`                                 varchar(35) NOT NULL,
+			`ContractID`                                 varchar(35) DEFAULT NULL,
 			`MajorLevelOrdinalNumberValue`               varchar(25) DEFAULT NULL,
 			`MinorLevelOrdinalNumberValue`               varchar(25) DEFAULT NULL,
 			`TypeCode`                                   varchar(4) DEFAULT NULL,
@@ -19,8 +19,7 @@ CREATE TABLE `sap_contract_external_price_component_data`
 			`ManuallyChangedIndicator`                   tinyint(1) DEFAULT NULL,
 			`InactivityReasonCode`                       varchar(2) DEFAULT NULL,
 			`OriginCode`                                 varchar(2) DEFAULT NULL,			
-    PRIMARY KEY (`ContractID`),
-    CONSTRAINT `SAPContractExternalPriceComponentData_fk` FOREIGN KEY (`ContractID`) REFERENCES `sap_contract_collection_data` (`ContractID`)
+    PRIMARY KEY (`ObjectID`),
+    CONSTRAINT `SAPContractExternalPriceComponentData_fk` FOREIGN KEY (`ObjectID`) REFERENCES `sap_contract_contract_collection_data` (`ObjectID`)
 ) ENGINE = InnoDB
  DEFAULT CHARSET = utf8mb4;
-

@@ -1,9 +1,9 @@
-CREATE TABLE `sap_contract_item_collection_data`
+CREATE TABLE `sap_contract_contract_item_collection_data`
 (
-			`ObjectID`                                               varchar(70) DEFAULT NULL,
+			`ObjectID`                                               varchar(70) NOT NULL,
+			`ItemID`                                                 varchar(60) NOT NULL,
 			`ParentObjectID`                                         varchar(70) DEFAULT NULL,
 			`ContractID`                                             varchar(35) DEFAULT NULL,
-			`ItemID`                                                 varchar(60) NOT NULL,
 			`ParentItemID`                                           varchar(10) DEFAULT NULL,
 			`ParentItemUUID`                                         varchar(10) DEFAULT NULL,　
 			`ProcessingTypeCode`                                     varchar(4) DEFAULT NULL,
@@ -57,8 +57,7 @@ CREATE TABLE `sap_contract_item_collection_data`
 			`PayerPartyUUID`                                         varchar() DEFAULT NULL,　
 			`PayerPartyFormattedName`                                varchar(480) DEFAULT NULL,
 			`EntityLastChangedOn`                                    varchar() DEFAULT NULL,　
-    PRIMARY KEY (`ItemID`),
-    CONSTRAINT `SAPContractItemCollectionData_fk` FOREIGN KEY (`ItemID`) REFERENCES `sap_contract_collection_data` (`ItemID`)
+    PRIMARY KEY (`ObjectID`, `ItemID`),
+    CONSTRAINT `SAPContractContractItemCollectionData_fk` FOREIGN KEY (`ObjectID`) REFERENCES `sap_contract_contract_collection_data` (`ObjectID`)
 ) ENGINE = InnoDB
  DEFAULT CHARSET = utf8mb4;
-

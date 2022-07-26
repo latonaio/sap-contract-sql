@@ -1,7 +1,7 @@
-CREATE TABLE `sap-contract-collection-data`
+CREATE TABLE `sap_contract_contract_collection_data`
 (
-			`ObjectID`                                                   varchar(70) DEFAULT NULL,
 			`ID`                                                         varchar(35) NOT NULL,
+			`ObjectID`                                                   varchar(70) DEFAULT NULL,
 			`BuyerID`                                                    varchar(35) DEFAULT NULL,
 			`MainBusinessProcessVariantTypeCode`                         varchar(4) DEFAULT NULL,
 			`ProcessingTypeCode`                                         varchar(4) DEFAULT NULL,
@@ -101,4 +101,3 @@ CREATE TABLE `sap-contract-collection-data`
     PRIMARY KEY (`ID`)  
 ) ENGINE = InnoDB
  DEFAULT CHARSET = utf8mb4;
-
